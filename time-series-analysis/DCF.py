@@ -10,9 +10,29 @@ from astropy.stats import bootstrap
 
 def DCF(t_a, t_b, a, b, lag, bin_width):
     """ Discrete-correlation function, Edelson & Krolik, 1988.
-        For evenly and unevenly spaced data.
-        Returns DCF, DCF errors and time-lag values.
-        Returns ACF values, if inputted time series are equal a == b. """
+        For evenly and unevenly spaced data. 
+        Returns ACF values, if inputted time series are equal a == b.
+        Parameters:
+        t_a: list or one-dimensional numpy array
+        	 time points of time series a
+        t_b: list or one-dimensional numpy array
+        	 time points of time series b
+        a:	 list or one-dimensional numpy array
+        	 time series a values
+        b:	 list or one-dimensional numpy array
+        	 time series b values
+        lag: list or one-dimensional numpy array of two elements (floats)
+        	 lag interval edges, lag[0] - start of the interval, lag[1] - end of the interval
+        bin_width: float
+             step of the lag grid
+        Returns:
+        DCF: one-dimensional numpy array
+             Computed DCF values
+        sigma_DCF: one-dimensional numpy array
+             Computed DCF errors values
+        lags: one-dimensional numpy array 
+             lag grid values """
+    
     t_a = np.asarray(t_a)
     t_b = np.asarray(t_b)
     a = np.asarray(a)
@@ -52,8 +72,28 @@ def LDCF(t_a, t_b, a, b, lag, bin_width):
         Combination of Edelson & Krolik, 1988 and Welsh, 1999 definitions.
         For evenly and unevenly spaced data. For time lag determination only. Not for recovery ARIMA coefficients
         or the power spectrum (see Welsh, 1999).
-        Returns LDCF, LDCF errors and time-lag values.
-        Returns LACF values, if inputted time series are equal a == b. """
+        Returns LACF values, if inputted time series are equal a == b. 
+        Parameters:
+        t_a: list or one-dimensional numpy array
+        	 time points of time series a
+        t_b: list or one-dimensional numpy array
+        	 time points of time series b
+        a:	 list or one-dimensional numpy array
+        	 time series a values
+        b:	 list or one-dimensional numpy array
+        	 time series b values
+        lag: list or one-dimensional numpy array of two elements (floats)
+        	 lag interval edges, lag[0] - start of the interval, lag[1] - end of the interval
+        bin_width: float
+             step of the lag grid
+        Returns:
+        LDCF: one-dimensional numpy array
+             Computed LDCF values
+        sigma_LDCF: one-dimensional numpy array
+             Computed LDCF errors values
+        lags: one-dimensional numpy array 
+             lag grid values """
+    
     t_a = np.asarray(t_a)
     t_b = np.asarray(t_b)
     a = np.asarray(a)
@@ -91,7 +131,18 @@ def LDCF(t_a, t_b, a, b, lag, bin_width):
 
 
 def DCF_simple_sign(dcf, lag):
-    """ Simplest test for peak significance in DCF """
+    """ Simplest test for peak significance in DCF
+        Parameters:
+        dcf: list or one-dimensional numpy array 
+             previously computed DCF values
+        lag: list or one-dimensional numpy array 
+             corresponding lag values 
+        Returns:
+        dcf_peak: float
+             computed DCF peak
+        peak_lag: float
+             corresponding time lag """
+    
     if max(dcf) > 2*np.std(dcf):
         dcf_peak = max(dcf)
         peak_lag = lag[dcf == dcf_peak]
@@ -104,7 +155,31 @@ def DCF_simple_sign(dcf, lag):
 
 
 def DCF_bootst(dcf, t_a, t_b, a, b, lag, bin_width, n_bootstraps):
-    """ Possible DCF values of two arbitrary time series via bootstrap """
+    """ Computes possible DCF values of two arbitrary time series via bootstrap.
+    Parameters:
+        dcf: list or one-dimensional numpy array 
+             previously computed DCF values
+        t_a: list or one-dimensional numpy array
+        	 time points of time series a
+        t_b: list or one-dimensional numpy array
+        	 time points of time series b
+        a:	 list or one-dimensional numpy array
+        	 time series a values
+        b:	 list or one-dimensional numpy array
+        	 time series b values
+        lag: list or one-dimensional numpy array of two elements (floats)
+        	 lag interval edges, lag[0] - start of the interval, lag[1] - end of the interval
+        bin_width: float
+             step of the lag grid
+        n_bootstraps: int
+             number of the bootstrap simulations to be done
+             5000 and more is recommended for confinding results
+        Returns:
+        bootstrap_mean: one-dimensional numpy array
+             Computed DCF mean
+        bootstrap_std: one-dimensional numpy array
+             Computed DCF standart deviation """
+    
     # Create DCF bootstrap matrix template
     bootstrap_dcf = np.zeros((n_bootstraps, len(dcf)))
 
