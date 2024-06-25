@@ -1,10 +1,12 @@
+### About
+
 This module contains several functions to compute and estimate Cross-Correlation between two generaly uneven time series with observational (or measurement) errors.
 Methods included based on the idea of time binning "close" data points. All functions provided with detailed description.
 
 [JAVELIN](https://github.com/nye17/javelin) (Zu et al. 2011) is needed for GP Monte-Carlo CI estimation.
   
 
-**Contents**
+### Contents
 
 **DCF** — Discrete Correlation Function (DCF) for evenly or unevenly spaced data. This function computes the discrete correlation function (DCF) between two time series, which can be evenly or unevenly spaced. If the two time series are identical (a == b), the function computes the auto-correlation function (ACF). The method is based on the work by Edelson & Krolik (1988).
 
@@ -24,4 +26,4 @@ Methods included based on the idea of time binning "close" data points. All func
 **CCF_lag_estimate_centroid** — Estimation of lag uncertainty in CCF via centroid using bootstrap CCF matrix (DCF or LCCF). See Peterson 1998.
 
 
-**! IF YOU ARE USING THIS CODE PLEASE REFER TO THIS PAGE IN YOUR PUBLICATIONS!**
+**! IF YOU ARE USING THIS CODE PLEASE REFER TO THIS PAGE IN YOUR PUBLICATIONS !**
