@@ -1,3 +1,3 @@
-edgeon-gal-analysis -- Code examples, written for [edge-on galaxies catalog project](https://relay.sao.ru/edgeon/). \
-ml-projects -- Programs I wrote while learning ML. \
-time-series-analysis -- My projects in Time Series Analysis, mostly for my research as an astronomy student.
+ml-projects -- ML projects. \
+time-series-analysis -- projects in Time Series Analysis, for my research in astronomy.  
+edgeon-gal-analysis -- code examples, written for [edge-on galaxies catalog](https://relay.sao.ru/edgeon/) project. 
