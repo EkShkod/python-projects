@@ -1,2 +1,2 @@
-EXAMPLES OF MY CODE, WRITTEN FOR [EDGE-ON GALAXIES CATALOG PROJECT](https://relay.sao.ru/edgeon/).
-THIS PROGRAMS WAS USED TO ANALYSE EDGE-ON GALAXIES CATALOG DATA.
+Examples of code, written for [edge-on galaxies catalog](https://relay.sao.ru/edgeon/) project.
+These programs were used to analyse catalog data.
