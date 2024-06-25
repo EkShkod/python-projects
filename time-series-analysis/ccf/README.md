@@ -6,6 +6,7 @@ Methods included based on the idea of time binning "close" data points. All func
 [JAVELIN](https://github.com/nye17/javelin) (Zu et al. 2011) is needed for GP Monte-Carlo CI estimation.
   
 
+  
 ### Contents
 
 **DCF** — Discrete Correlation Function (DCF) for evenly or unevenly spaced data. This function computes the discrete correlation function (DCF) between two time series, which can be evenly or unevenly spaced. If the two time series are identical (a == b), the function computes the auto-correlation function (ACF). The method is based on the work by Edelson & Krolik (1988).
