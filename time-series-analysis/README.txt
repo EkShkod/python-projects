@@ -1,3 +1,3 @@
-DCF.py -- READY TO USE MODULE TO COMPUTE DICRETE CORRELATION FUNCTION, SEE Edelson & Krolik, 1988
-DCF.py -- READY TO USE MODULE FOR SPECTRAL ANALYSIS OF TIME SERIES - CLEAN ALGORITHM, SEE Roberst et al, 1987
-light-curves-analysis-project -- EXAMPLE OF MY CURRENT PROJECT FOR ANALYSIS OF BLAZARS LIGHT CURVES 
+ссf — ready to use package for uneven time series correlation analysis. Includes DCF, LCCF and bootstrap lag estimates. 
+CLEAN.py — ready to use module for time series spectral analysis CLEAN algorithm, see Roberts et al, 1987.
+light-curves-analysis-project — old project in analysis of blazars light curves.
